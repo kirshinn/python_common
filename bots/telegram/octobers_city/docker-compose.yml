@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bot_image_octobers_city
+    container_name: bot_octobers_city
+    restart: unless-stopped
+    volumes:
+      - ./src:/bot
+    networks:
+      - octobers_city
+networks:
+  octobers_city:
+    driver: bridge
