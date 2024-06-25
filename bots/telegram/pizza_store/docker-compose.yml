@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bot_image_pizza_store
+    container_name: bot_pizza_store
+    restart: unless-stopped
+    volumes:
+      - ./src:/bot
+    networks:
+      - pizza_store
+networks:
+  pizza_store:
+    driver: bridge
